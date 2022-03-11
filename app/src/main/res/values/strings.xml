@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">news</string>
+    <string name="newzify">NEWZIFY</string>
+    <string name="category">Category</string>
+    <string name="todo">TODO</string>
+    <string name="news_heading">News Heading</string>
+    <string name="sub_heading">Sub Heading</string>
+</resources>
