@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() , NewsItemClicked ,PostAdapter.OnItemCl
 
 
     private fun fatchdata() {
-        val url = "https://saurav.tech/NewsAPI/top-headlines/category/health/in.json"
+        val url = "https://saurav.tech/NewsAPI/everything/cnn.json"
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.GET ,
             url , null ,
@@ -88,6 +88,8 @@ class MainActivity : AppCompatActivity() , NewsItemClicked ,PostAdapter.OnItemCl
     override fun onItemClick(position: Int) {
         if(position==0) {
             Toast.makeText(this , "OPENING PLEASE WAIT !!" , Toast.LENGTH_SHORT).show()
+            val intent = Intent(this , HealthActivity::class.java)
+            startActivity(intent)
         }
         else if(position==1) {
             Toast.makeText(this , "OPENING PLEASE WAIT !!" , Toast.LENGTH_SHORT).show()
