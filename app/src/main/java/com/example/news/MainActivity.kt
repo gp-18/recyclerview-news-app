@@ -5,10 +5,13 @@ import android.graphics.drawable.ClipDrawable.HORIZONTAL
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Layout
 import android.widget.HorizontalScrollView
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.HORIZONTAL
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
@@ -24,6 +27,16 @@ class MainActivity : AppCompatActivity() , NewsItemClicked {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val posts:ArrayList<String> = ArrayList()
+        for(i in 1..3)
+        {
+            posts.add("HEALTH")
+            posts.add("SPORTS")
+            posts.add("BUSINESS")
+        }
+        val horrecyclerView=findViewById<RecyclerView>(R.id.category)
+        horrecyclerView.layoutManager=LinearLayoutManager(this,RecyclerView.HORIZONTAL,false)
+        horrecyclerView.adapter=PostAdapter(posts)
 
         val recyclerView=findViewById<RecyclerView>(R.id.showing)
         recyclerView.layoutManager=LinearLayoutManager(this)
