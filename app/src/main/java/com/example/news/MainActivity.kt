@@ -86,8 +86,13 @@ class MainActivity : AppCompatActivity() , NewsItemClicked ,PostAdapter.OnItemCl
     }
 
     override fun onItemClick(position: Int) {
-        Toast.makeText(this , "OPENING PLEASE WAIT !!" , Toast.LENGTH_SHORT).show()
-        val intent=Intent(this,AnotherActivity::class.java)
-        startActivity(intent)
+        if(position==0) {
+            Toast.makeText(this , "OPENING PLEASE WAIT !!" , Toast.LENGTH_SHORT).show()
+        }
+        else if(position==1) {
+            Toast.makeText(this , "OPENING PLEASE WAIT !!" , Toast.LENGTH_SHORT).show()
+            val intent = Intent(this , AnotherActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
