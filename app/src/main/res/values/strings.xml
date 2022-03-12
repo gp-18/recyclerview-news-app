@@ -6,4 +6,7 @@
     <string name="news_heading">News Heading</string>
     <string name="sub_heading">Sub Heading</string>
     <string name="textview">TextView</string>
+    <string name="stay_connected_stay_updated">STAY CONNECTED STAY UPDATED</string>
+    <string name="start">START</string>
+
 </resources>

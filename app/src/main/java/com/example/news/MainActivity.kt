@@ -30,10 +30,11 @@ class MainActivity : AppCompatActivity() , NewsItemClicked ,PostAdapter.OnItemCl
 
         val posts:ArrayList<String> = ArrayList()
 
-            posts.add("HEALTH")
-            posts.add("SPORTS")
-            posts.add("BUSINESS")
-            posts.add("Enterainment")
+            posts.add("Health")
+            posts.add("Sports")
+            posts.add("Business")
+            posts.add("Entertainment")
+            posts.add("Technology")
 
         val horrecyclerView=findViewById<RecyclerView>(R.id.category)
         horrecyclerView.layoutManager=LinearLayoutManager(this,RecyclerView.HORIZONTAL,false)
@@ -105,6 +106,12 @@ class MainActivity : AppCompatActivity() , NewsItemClicked ,PostAdapter.OnItemCl
         else if(position==3) {
             Toast.makeText(this , "OPENING PLEASE WAIT !!" , Toast.LENGTH_SHORT).show()
             val intent = Intent(this , EntertainmentActivity::class.java)
+            startActivity(intent)
+        }
+
+        else if(position==4) {
+            Toast.makeText(this , "OPENING PLEASE WAIT !!" , Toast.LENGTH_SHORT).show()
+            val intent = Intent(this , technologyActivity::class.java)
             startActivity(intent)
         }
     }
