@@ -1,12 +1,15 @@
 package com.example.news
 
 
+import android.content.Intent
 import android.graphics.drawable.ClipDrawable.HORIZONTAL
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Layout
+import android.view.View
 import android.widget.HorizontalScrollView
+import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.HORIZONTAL
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -18,7 +21,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import org.intellij.lang.annotations.JdkConstants
 
 
-class MainActivity : AppCompatActivity() , NewsItemClicked {
+class MainActivity : AppCompatActivity() , NewsItemClicked ,PostAdapter.OnItemClickListener{
     private  lateinit var mAdapter: NewsListAdapter
 
 
@@ -28,15 +31,14 @@ class MainActivity : AppCompatActivity() , NewsItemClicked {
         setContentView(R.layout.activity_main)
 
         val posts:ArrayList<String> = ArrayList()
-        for(i in 1..3)
-        {
+
             posts.add("HEALTH")
             posts.add("SPORTS")
             posts.add("BUSINESS")
-        }
+
         val horrecyclerView=findViewById<RecyclerView>(R.id.category)
         horrecyclerView.layoutManager=LinearLayoutManager(this,RecyclerView.HORIZONTAL,false)
-        horrecyclerView.adapter=PostAdapter(posts)
+        horrecyclerView.adapter=PostAdapter(posts,this)
 
         val recyclerView=findViewById<RecyclerView>(R.id.showing)
         recyclerView.layoutManager=LinearLayoutManager(this)
@@ -81,5 +83,11 @@ class MainActivity : AppCompatActivity() , NewsItemClicked {
         val builder =  CustomTabsIntent.Builder();
         val customTabsIntent = builder.build();
         customTabsIntent.launchUrl(this, Uri.parse(item.url));
+    }
+
+    override fun onItemClick(position: Int) {
+        Toast.makeText(this , "OPENING PLEASE WAIT !!" , Toast.LENGTH_SHORT).show()
+        val intent=Intent(this,AnotherActivity::class.java)
+        startActivity(intent)
     }
 }
