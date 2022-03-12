@@ -94,5 +94,12 @@ class MainActivity : AppCompatActivity() , NewsItemClicked ,PostAdapter.OnItemCl
             val intent = Intent(this , AnotherActivity::class.java)
             startActivity(intent)
         }
+
+        else if(position==2) {
+            Toast.makeText(this , "OPENING PLEASE WAIT !!" , Toast.LENGTH_SHORT).show()
+            val intent = Intent(this , BusinessActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
