@@ -24,8 +24,6 @@ import org.intellij.lang.annotations.JdkConstants
 class MainActivity : AppCompatActivity() , NewsItemClicked ,PostAdapter.OnItemClickListener{
     private  lateinit var mAdapter: NewsListAdapter
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,6 +33,7 @@ class MainActivity : AppCompatActivity() , NewsItemClicked ,PostAdapter.OnItemCl
             posts.add("HEALTH")
             posts.add("SPORTS")
             posts.add("BUSINESS")
+            posts.add("Enterainment")
 
         val horrecyclerView=findViewById<RecyclerView>(R.id.category)
         horrecyclerView.layoutManager=LinearLayoutManager(this,RecyclerView.HORIZONTAL,false)
@@ -103,5 +102,10 @@ class MainActivity : AppCompatActivity() , NewsItemClicked ,PostAdapter.OnItemCl
             startActivity(intent)
         }
 
+        else if(position==3) {
+            Toast.makeText(this , "OPENING PLEASE WAIT !!" , Toast.LENGTH_SHORT).show()
+            val intent = Intent(this , EntertainmentActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.News">
         <activity
+            android:name=".EntertainmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".HealthActivity"
             android:exported="false" />
         <activity
